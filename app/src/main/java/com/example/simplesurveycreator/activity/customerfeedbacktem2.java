@@ -9,17 +9,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.simplesurveycreator.R;
 
-public class MainActivity extends AppCompatActivity {
-    private Button btndula;
+public class customerfeedbacktem2 extends AppCompatActivity {
+    private Button btn1,btn2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btndula = findViewById(R.id.selecttepmainbtn);
-        btndula.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_customerfeedbacktem2);
+
+        btn1 = findViewById(R.id.tep2prebtn);
+
+        btn2 = findViewById(R.id.temp3bckbtn);
+
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivity1();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
             }
         });
     }
@@ -29,5 +43,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openActivity2(){
+        Intent intent = new Intent(this,customerfeedback3.class);
+        startActivity(intent);
+    }
 
 }
