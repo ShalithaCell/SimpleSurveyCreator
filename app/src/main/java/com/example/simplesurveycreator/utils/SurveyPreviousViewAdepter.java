@@ -33,6 +33,7 @@ public class SurveyPreviousViewAdepter extends
         // View contactView = inflater.inflate(R.layout.item_contact, parent, false);
 
         return null;
+        
     }
 
     @Override
