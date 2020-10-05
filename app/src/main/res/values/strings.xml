@@ -114,4 +114,8 @@
     <string name="share4">Share</string>
     <string name="delete4">Delete</string>
     <string name="successfuldelete">Successfuly Delete !</string>
+    <string name="surveyman">surveyMan</string>
+    <string name="blank_survey">Blank Survey</string>
+    <string name="choose_from_template">choose from template</string>
+    <string name="view">View</string>
 </resources>
