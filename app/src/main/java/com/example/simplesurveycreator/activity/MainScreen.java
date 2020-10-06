@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simplesurveycreator.R;
+import com.example.simplesurveycreator.model.Survey;
+import com.example.simplesurveycreator.utils.SurveyPreviousViewAdepter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,11 +57,17 @@ public class MainScreen extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main_screen, container, false);
         recyclerViewInventory = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
 
+        ArrayList<Survey> surveys = Survey.createSurveyList(10);
+
+        SurveyPreviousViewAdepter adepter = new SurveyPreviousViewAdepter(surveys);
+        recyclerViewInventory.setAdapter(adepter);
+
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 
         recyclerViewInventory.setLayoutManager(mLayoutManager);
         recyclerViewInventory.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewInventory.addItemDecoration(new DividerItemDecoration(container.getContext(), LinearLayoutManager.VERTICAL));
+        recyclerViewInventory.addItemDecoration(new DividerItemDecoration(container.getContext(), 0));
 
         return rootView;
     }
