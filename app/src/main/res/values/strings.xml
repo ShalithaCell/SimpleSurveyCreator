@@ -118,4 +118,5 @@
     <string name="blank_survey">Blank Survey</string>
     <string name="choose_from_template">choose from template</string>
     <string name="view">View</string>
+    <string name="recent_activities">Recent activities</string>
 </resources>

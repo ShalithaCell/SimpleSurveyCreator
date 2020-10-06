@@ -213,4 +213,8 @@
 
     <color name="active_center_button">#F44336</color>
 
+    <color name="start_blue">#09c6df</color>
+    <color name="end_blue">#0bcce6</color>
+
+
 </resources>

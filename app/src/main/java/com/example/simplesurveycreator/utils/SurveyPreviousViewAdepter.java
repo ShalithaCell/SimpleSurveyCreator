@@ -9,9 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.simplesurveycreator.Consts;
 import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.model.Survey;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -30,20 +32,27 @@ public class SurveyPreviousViewAdepter extends
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        // View contactView = inflater.inflate(R.layout.item_contact, parent, false);
+        View contactView = inflater.inflate(R.layout.survey_previous_row, parent, false);
 
-        return null;
-        
+        ViewHolder viewHolder = new ViewHolder(contactView);
+        return viewHolder;
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Survey survey = surveys.get(position);
+
+        TextView textView = holder.surveyName;
+        textView.setText(survey.getName());
+
+        holder.lastModifiedDate.setText(commonUtils.dateToStringFormat(new Date(), Consts.dateFormatYYYYMMDD));
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return surveys.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
