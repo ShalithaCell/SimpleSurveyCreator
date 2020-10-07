@@ -120,7 +120,6 @@
     <string name="view">View</string>
     <string name="recent_activities">Recent activities</string>
     <string name="app_popup_close_icon">X</string>
-    <string name="blank_survey">Blank Survey</string>
     <string name="enter_survey_name">Enter survey name</string>
     <string name="survey_popup_hint">Start with a black survey project and build it to suit you needs</string>
     <string name="cancel">Cancel</string>
