@@ -215,6 +215,7 @@
 
     <color name="start_blue">#09c6df</color>
     <color name="end_blue">#0bcce6</color>
+    <color name="transparent_blue">#33FFFFFF</color>
 
 
 </resources>
