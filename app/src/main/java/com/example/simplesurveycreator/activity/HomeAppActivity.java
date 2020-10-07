@@ -3,6 +3,7 @@ package com.example.simplesurveycreator.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.example.simplesurveycreator.R;
 import com.luseen.spacenavigation.SpaceItem;
@@ -16,6 +17,8 @@ public class HomeAppActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_app);
+
+
 
         spaceNavigationView = findViewById(R.id.space);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
