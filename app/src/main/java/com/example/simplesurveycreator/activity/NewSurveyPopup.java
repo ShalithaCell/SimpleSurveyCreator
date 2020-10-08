@@ -40,6 +40,14 @@ public class NewSurveyPopup extends DialogFragment {
                 dismiss();
             }
         });
+
+        btnGetStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new surveyCreate()).commit();
+                dismiss();
+            }
+        });
     }
 
     @Nullable
