@@ -6,6 +6,10 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Patterns;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class commonUtils {
 
     /**
@@ -49,5 +53,10 @@ public class commonUtils {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static String dateToStringFormat(Date date, String format){
+        Format formatter = new SimpleDateFormat(format);
+        return formatter.format(date);
     }
 }
