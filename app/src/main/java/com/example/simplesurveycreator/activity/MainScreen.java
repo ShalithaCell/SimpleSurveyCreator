@@ -6,13 +6,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.PopupWindow;
+
 import com.example.simplesurveycreator.R;
+import com.example.simplesurveycreator.model.Survey;
+import com.example.simplesurveycreator.utils.SurveyPreviousViewAdepter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,7 +34,10 @@ import com.example.simplesurveycreator.R;
 public class MainScreen extends Fragment {
 
     private RecyclerView recyclerViewInventory;
+
     private Button btn1;
+
+    private Button btnNewSurvey;
 
 
     public MainScreen() {
@@ -62,11 +77,34 @@ public class MainScreen extends Fragment {
         btn1 = (Button)rootView.findViewById(R.id.btnChoose);
         recyclerViewInventory = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
 
+        btnNewSurvey = (Button) rootView.findViewById(R.id.btnBlank) ;
+
+        ArrayList<Survey> surveys = Survey.createSurveyList(10);
+
+        SurveyPreviousViewAdepter adepter = new SurveyPreviousViewAdepter(surveys);
+        recyclerViewInventory.setAdapter(adepter);
+
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 
         recyclerViewInventory.setLayoutManager(mLayoutManager);
         recyclerViewInventory.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewInventory.addItemDecoration(new DividerItemDecoration(container.getContext(), LinearLayoutManager.VERTICAL));
+        recyclerViewInventory.addItemDecoration(new DividerItemDecoration(container.getContext(), 0));
+
+
+        btnNewSurvey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                View popupView = LayoutInflater.from(getActivity()).inflate(R.layout.popup_new_survey, null);
+//                final PopupWindow popupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+//
+//                popupWindow.showAsDropDown(popupView, 0, 0);
+
+                DialogFragment newFragment = new NewSurveyPopup();
+                assert getFragmentManager() != null;
+                newFragment.show(getFragmentManager(), "DatePicker");
+            }
+        });
 
 
 templatemenue templatemenue = new templatemenue();

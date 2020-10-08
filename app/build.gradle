@@ -49,6 +49,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.armcha:SpaceNavigationView:1.6.0'
 
+    //card view
+    implementation 'androidx.cardview:cardview:1.0.0'
+
 
 
     //noinspection GradleCompatible
