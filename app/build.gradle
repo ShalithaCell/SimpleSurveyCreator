@@ -62,4 +62,7 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //floating button
+    implementation 'com.nambimobile.widgets:expandable-fab:1.0.1'
+
 }
