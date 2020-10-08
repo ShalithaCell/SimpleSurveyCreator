@@ -11,11 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Dashboard"></activity>
+        <activity android:name=".activity.Populertemlist"></activity>
         <activity android:name=".activity.Fogotpw" />
         <activity android:name=".activity.Signup" />
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.Login">
         <activity android:name=".activity.successfulydeletemsg"></activity>
         <activity android:name=".activity.deletemsg" />
         <activity android:name=".activity.customerfeedback4" />
@@ -26,9 +25,9 @@
         <activity android:name=".activity.whatsappshare" />
         <activity android:name=".activity.Moresharelist" />
         <activity android:name=".activity.sharelist" />
-        <activity android:name=".activity.Populertemlist" />
+        <activity android:name=".activity.Dashboard" />
         <activity android:name=".activity.MainActivity2" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
