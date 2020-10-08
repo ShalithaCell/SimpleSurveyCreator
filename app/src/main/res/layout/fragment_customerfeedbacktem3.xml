@@ -2,20 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tem3btn2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.customerfeedbacktem2">
+    tools:context=".activity.customerfeedbacktem3">
 
 
     <LinearLayout
-        android:layout_width="417dp"
-        android:layout_height="669dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="61dp"
+        android:layout_width="416dp"
+        android:layout_height="635dp"
+        android:layout_marginTop="20dp"
 
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +20,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:background="@drawable/gradiant_background"
             android:orientation="vertical">
 
             <LinearLayout
@@ -33,7 +31,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="430dp"
+                    android:layout_width="448dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -43,7 +41,7 @@
                         android:layout_height="27dp" />
 
                     <TextView
-                        android:id="@+id/textView202"
+                        android:id="@+id/textView20234"
                         android:layout_width="match_parent"
                         android:layout_height="39dp"
                         android:text="@string/temmenu"
@@ -64,22 +62,32 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="167dp"
+            android:layout_height="152dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="33dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView172"
-                    android:layout_width="742dp"
+                <LinearLayout
+                    android:layout_width="748dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/qes4"
-                    android:textColor="@color/Black"
-                    android:textSize="15sp" />
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp" />
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/question7"
+                        android:textColor="@color/Black" />
+
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/tep1opt2btn"
@@ -90,22 +98,28 @@
             </LinearLayout>
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radioButton234"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/bad" />
+                android:backgroundTint="@color/DarkGray"
+                android:buttonTint="@color/DarkGray"
+                android:text="@string/difficultd" />
 
             <RadioButton
-                android:id="@+id/radioButton22"
+                android:id="@+id/radioButton2234"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/reguler" />
+                android:backgroundTint="@color/DarkGray"
+                android:buttonTint="@color/DarkGray"
+                android:text="@string/veryeassy" />
 
             <RadioButton
-                android:id="@+id/radioButton32"
+                android:id="@+id/radioButton3234"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/goodl" />
+                android:backgroundTint="@color/DarkGray"
+                android:buttonTint="@color/DarkGray"
+                android:text="@string/regulard" />
 
         </LinearLayout>
 
@@ -125,11 +139,11 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView182"
+                        android:id="@+id/textView18234"
                         android:layout_width="749dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="@string/qestion5"
+                        android:text="@string/question8"
                         android:textColor="@color/Black"
                         android:textSize="15sp" />
 
@@ -143,22 +157,28 @@
             </LinearLayout>
 
             <RadioButton
-                android:id="@+id/radioButton52"
+                android:id="@+id/radioButton5234"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/veryuseful" />
+                android:backgroundTint="@color/DarkGray"
+                android:buttonTint="@color/DarkGray"
+                android:text="@string/morethanespect" />
 
             <RadioButton
-                android:id="@+id/radioButton62"
+                android:id="@+id/radioButton6234"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/somewhatuseful" />
+                android:backgroundTint="@color/DarkGray"
+                android:buttonTint="@color/DarkGray"
+                android:text="@string/asmuchasexpt" />
 
             <RadioButton
-                android:id="@+id/radioButton72"
+                android:id="@+id/radioButton7234"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/notatallusefull" />
+                android:backgroundTint="@color/DarkGray"
+                android:buttonTint="@color/DarkGray"
+                android:text="@string/muchlessthanexpected" />
         </LinearLayout>
 
         <LinearLayout
@@ -168,7 +188,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="48dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -177,11 +197,11 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView192"
+                        android:id="@+id/textView19234"
                         android:layout_width="732dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="@string/question6"
+                        android:text="@string/que9"
                         android:textColor="@color/Black"
                         android:textSize="15sp" />
 
@@ -200,22 +220,28 @@
                 android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/radioButton82"
+                    android:id="@+id/radioButton8234"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/ayes" />
+                    android:backgroundTint="@color/DarkGray"
+                    android:buttonTint="@color/DarkGray"
+                    android:text="@string/q9a1" />
 
                 <RadioButton
-                    android:id="@+id/radioButton92"
+                    android:id="@+id/radioButton9234"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/ano" />
+                    android:backgroundTint="@color/DarkGray"
+                    android:buttonTint="@color/DarkGray"
+                    android:text="@string/naverl" />
 
                 <RadioButton
-                    android:id="@+id/radioButton102"
+                    android:id="@+id/radioButton10234"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/confused" />
+                    android:backgroundTint="@color/DarkGray"
+                    android:buttonTint="@color/DarkGray"
+                    android:text="@string/possibly" />
             </LinearLayout>
         </LinearLayout>
 
@@ -235,33 +261,33 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/tep2prebtn"
-                    android:layout_width="50dp"
+                    android:id="@+id/tepcus3bt1"
+                    android:layout_width="62dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/shapelist"
+                    android:background="@drawable/shape_button"
                     android:text="@string/babtn"
                     android:textColor="@color/Black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <Space
-                    android:layout_width="41dp"
+                    android:layout_width="14dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/temp3bckbtn"
-                    android:layout_width="50dp"
+                    android:id="@+id/custemb2"
+                    android:layout_width="58dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/shapelist"
+                    android:background="@drawable/shape_button"
                     android:text="@string/bacbtn"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <Space
-                    android:layout_width="20dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
             </LinearLayout>

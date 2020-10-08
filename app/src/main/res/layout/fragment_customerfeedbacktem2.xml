@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.customerfeedbacktemplete">
+    tools:context=".activity.customerfeedbacktem2">
 
     <LinearLayout
         android:layout_width="417dp"
         android:layout_height="669dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="61dp"
 
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:background="@drawable/gradiant_background"
             android:orientation="vertical">
 
             <LinearLayout
@@ -31,7 +30,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="430dp"
+                    android:layout_width="444dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -41,7 +40,7 @@
                         android:layout_height="27dp" />
 
                     <TextView
-                        android:id="@+id/textView20"
+                        android:id="@+id/textView202"
                         android:layout_width="match_parent"
                         android:layout_height="39dp"
                         android:text="@string/temmenu"
@@ -62,22 +61,38 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="167dp"
+            android:layout_height="171dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="53dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="742dp"
+                <LinearLayout
+                    android:layout_width="744dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/custemq1"
-                    android:textColor="@color/Black"
-                    android:textSize="15sp" />
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/newqes444"
+                        android:textColor="@color/Black" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/newqes44"
+                        android:textColor="@color/Black" />
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/tep1opt2btn"
@@ -88,22 +103,25 @@
             </LinearLayout>
 
             <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/q1an1" />
-
-            <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/q2a2" />
+                android:backgroundTint="@color/DarkGray"
+                android:text="@string/bad" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioButton22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/q1a3" />
+                android:backgroundTint="@color/DarkGray"
+                android:text="@string/reguler" />
+
+            <RadioButton
+                android:id="@+id/radioButton32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/DarkGray"
+                android:text="@string/goodl" />
 
         </LinearLayout>
 
@@ -114,7 +132,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="34dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -123,11 +141,11 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView18"
+                        android:id="@+id/textView182"
                         android:layout_width="749dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="@string/cusq22"
+                        android:text="@string/qestion5"
                         android:textColor="@color/Black"
                         android:textSize="15sp" />
 
@@ -141,22 +159,25 @@
             </LinearLayout>
 
             <RadioButton
-                android:id="@+id/radioButton5"
+                android:id="@+id/radioButton52"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cusq2a" />
+                android:backgroundTint="@color/DarkGray"
+                android:text="@string/veryuseful" />
 
             <RadioButton
-                android:id="@+id/radioButton6"
+                android:id="@+id/radioButton62"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/qq2a2" />
+                android:backgroundTint="@color/DarkGray"
+                android:text="@string/somewhatuseful" />
 
             <RadioButton
-                android:id="@+id/radioButton7"
+                android:id="@+id/radioButton72"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/qq2a3" />
+                android:backgroundTint="@color/DarkGray"
+                android:text="@string/notatallusefull" />
         </LinearLayout>
 
         <LinearLayout
@@ -166,7 +187,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="38dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -175,11 +196,11 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView19"
+                        android:id="@+id/textView192"
                         android:layout_width="732dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="@string/custemq3"
+                        android:text="@string/question6"
                         android:textColor="@color/Black"
                         android:textSize="15sp" />
 
@@ -198,22 +219,25 @@
                 android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/radioButton8"
+                    android:id="@+id/radioButton82"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/q3aa1" />
+                    android:backgroundTint="@color/DarkGray"
+                    android:text="@string/ayes" />
 
                 <RadioButton
-                    android:id="@+id/radioButton9"
+                    android:id="@+id/radioButton92"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/q3aa2" />
+                    android:backgroundTint="@color/DarkGray"
+                    android:text="@string/ano" />
 
                 <RadioButton
-                    android:id="@+id/radioButton10"
+                    android:id="@+id/radioButton102"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/q3a3" />
+                    android:backgroundTint="@color/DarkGray"
+                    android:text="@string/confused" />
             </LinearLayout>
         </LinearLayout>
 
@@ -228,32 +252,32 @@
                 android:orientation="horizontal">
 
                 <Space
-                    android:layout_width="193dp"
+                    android:layout_width="224dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/tep3bt1"
-                    android:layout_width="50dp"
+                    android:id="@+id/tep2prebtn"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/shapelist"
+                    android:background="@drawable/shape_button"
                     android:text="@string/babtn"
                     android:textColor="@color/Black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <Space
-                    android:layout_width="41dp"
+                    android:layout_width="51dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/tep1backbtn"
-                    android:layout_width="50dp"
+                    android:id="@+id/temp3bckbtn"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/shapelist"
+                    android:background="@drawable/shape_button"
                     android:text="@string/bacbtn"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -265,4 +289,5 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

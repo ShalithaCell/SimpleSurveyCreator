@@ -1,10 +1,14 @@
 package com.example.simplesurveycreator.activity;
 
-
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,18 +16,40 @@ import com.example.simplesurveycreator.R;
 
 import java.util.ArrayList;
 
-public class Populertemlist extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link populartemlatelist#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class populartemlatelist extends Fragment {
     private static final String TAG = "MainActivity";
-    //vars
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
+
+
+
+
+    public populartemlatelist() {
+        // Required empty public constructor
+    }
+
+
+    public static populartemlatelist newInstance(String param1, String param2) {
+        populartemlatelist fragment = new populartemlatelist();
+
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_populertemlist);
+
+
         Log.d(TAG, "onCreate: started");
         initImageBitmaps();
     }
+
+
     private void initImageBitmaps(){
         Log.d(TAG, "initImageBitmaps: started");
         mImageUrls.add("https://www.omniconvert.com/wp-content/uploads/2019/10/new-hero-ab-testing-copy-med.png");
@@ -63,10 +89,28 @@ public class Populertemlist extends AppCompatActivity {
     private  void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: started");
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view2);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames,mImageUrls,this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+
+
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_populartemlatelist, container, false);
+
+
+        RecyclerView recyclerView  = (RecyclerView) rootView.findViewById(R.id.recycler_view2);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(container.getContext(), LinearLayoutManager.VERTICAL));
+
+
+        return rootView;
+    }
+
+    }

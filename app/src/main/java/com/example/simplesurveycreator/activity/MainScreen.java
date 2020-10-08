@@ -1,6 +1,10 @@
 package com.example.simplesurveycreator.activity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -30,6 +34,9 @@ import java.util.ArrayList;
 public class MainScreen extends Fragment {
 
     private RecyclerView recyclerViewInventory;
+
+    private Button btn1;
+
     private Button btnNewSurvey;
 
 
@@ -53,13 +60,21 @@ public class MainScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_main_screen, container, false);
+
+        btn1 = (Button)rootView.findViewById(R.id.btnChoose);
         recyclerViewInventory = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
 
         btnNewSurvey = (Button) rootView.findViewById(R.id.btnBlank) ;
@@ -89,6 +104,22 @@ public class MainScreen extends Fragment {
                 assert getFragmentManager() != null;
                 newFragment.show(getFragmentManager(), "DatePicker");
             }
+        });
+
+
+templatemenue templatemenue = new templatemenue();
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+       getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, templatemenue).addToBackStack(null).commit();
+
+
+
+            }
+
         });
 
         return rootView;
