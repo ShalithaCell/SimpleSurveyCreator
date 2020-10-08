@@ -12,23 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Populertemlist"></activity>
         <activity android:name=".activity.Fogotpw" />
         <activity android:name=".activity.Signup" />
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.successfulydeletemsg"></activity>
-        <activity android:name=".activity.deletemsg" />
-        <activity android:name=".activity.customerfeedback4" />
-        <activity android:name=".activity.customerfeedback3" />
-        <activity android:name=".activity.customerfeedbacktem2" />
-        <activity android:name=".activity.customerfeedbacktemplete" />
-        <activity android:name=".activity.successfulysendmsg" />
         <activity android:name=".activity.whatsappshare" />
-        <activity android:name=".activity.Moresharelist" />
-        <activity android:name=".activity.sharelist" />
         <activity android:name=".activity.Dashboard" />
-        <activity android:name=".activity.MainActivity2" />
-        <activity android:name=".activity.Login">
+        <activity android:name=".activity.Login" />
         <activity android:name=".activity.HomeAppActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,11 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Dashboard" />
-        <activity android:name=".activity.Fogotpw" />
-        <activity android:name=".activity.Signup" />
-        <activity android:name=".activity.Login" />
-        <activity android:name=".activity.whatsappshare" />
     </application>
 
 </manifest>
