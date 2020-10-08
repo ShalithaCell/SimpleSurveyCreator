@@ -1,4 +1,4 @@
-package com.example.simplesurveycreator.utils;
+package com.example.simplesurveycreator.recyclerView.adapter.Model;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.simplesurveycreator.Consts;
 import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.model.Survey;
+import com.example.simplesurveycreator.utils.commonUtils;
 
 import java.util.Date;
 import java.util.List;

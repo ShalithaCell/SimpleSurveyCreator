@@ -80,6 +80,29 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtSurveyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/space_default_color"
+            android:text="Survey name"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_inventory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSurveyName" />
+
         <com.nambimobile.widgets.efab.ExpandableFabLayout
             android:id="@+id/expandable_fab_layout"
             android:layout_width="match_parent"
@@ -97,8 +120,7 @@
                 app:efab_closingAnticipateTension="0"
                 app:efab_color="@color/MediumSeaGreen"
                 app:efab_icon="@drawable/ic_add_circle_black_24dp"
-                app:efab_iconAnimationRotationDeg="-225"
-                app:label_text="Compose" />
+                app:efab_iconAnimationRotationDeg="-225" />
 
             <com.nambimobile.widgets.efab.Overlay
                 android:layout_width="match_parent"
@@ -113,14 +135,6 @@
                 app:fab_color="@color/Teal"
                 app:fab_icon="@drawable/ic_baseline_widgets_24"
                 app:label_text="Question bank"
-                app:label_backgroundColor="@color/transparent_blue"/>
-
-            <com.nambimobile.widgets.efab.FabOption
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_color="@color/Teal"
-                app:fab_icon="@drawable/ic_baseline_more_horiz_24"
-                app:label_text="Points"
                 app:label_backgroundColor="@color/transparent_blue"/>
 
             <com.nambimobile.widgets.efab.FabOption
