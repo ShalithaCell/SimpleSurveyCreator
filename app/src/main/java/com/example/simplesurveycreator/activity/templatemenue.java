@@ -4,27 +4,31 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplesurveycreator.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link customerfeedbacktem2#newInstance} factory method to
+ * Use the {@link templatemenue#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class customerfeedbacktem2 extends Fragment {
-    private Button btn1,btn2;
+public class templatemenue extends Fragment {
+
+    private TextView btn1;
+    private ConstraintLayout btn2;
 
 
-    public customerfeedbacktem2() {
+    public templatemenue() {
         // Required empty public constructor
     }
 
-    public static customerfeedbacktem2 newInstance(String param1, String param2) {
-        customerfeedbacktem2 fragment = new customerfeedbacktem2();
+
+    public static templatemenue newInstance(String param1, String param2) {
+        templatemenue fragment = new templatemenue();
 
         return fragment;
     }
@@ -39,35 +43,31 @@ public class customerfeedbacktem2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_customerfeedbacktem2, container, false);
 
-        btn1 = rootView.findViewById(R.id.tep2prebtn);
-        btn2 = rootView.findViewById(R.id.temp3bckbtn);
+        View rootView = inflater.inflate(R.layout.fragment_templatemenue, container, false);
+
+        btn1 = rootView.findViewById(R.id.sampleteplistbtn2);
+        btn2 = rootView.findViewById(R.id.f1btn);
 
         btn1.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
                 getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new customerfeedbacktem1()).addToBackStack(null).commit();
 
             }
 
         });
 
-
-
         btn2.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new customerfeedbacktem3()).addToBackStack(null).commit();
-
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new populartemlatelist()).addToBackStack(null).commit();
             }
 
         });
-
         return rootView;
     }
 }
+
