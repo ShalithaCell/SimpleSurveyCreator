@@ -35,7 +35,7 @@ public class MainScreen extends Fragment {
 
     private RecyclerView recyclerViewInventory;
 
-    private Button btn1;
+    private Button btn1,btn2;
 
     private Button btnNewSurvey;
 
@@ -75,9 +75,12 @@ public class MainScreen extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main_screen, container, false);
 
         btn1 = (Button)rootView.findViewById(R.id.btnChoose);
+        btn2 = (Button)rootView.findViewById(R.id.reportbtn);
+        btnNewSurvey = (Button) rootView.findViewById(R.id.btnBlank) ;
+
         recyclerViewInventory = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
 
-        btnNewSurvey = (Button) rootView.findViewById(R.id.btnBlank) ;
+
 
         ArrayList<Survey> surveys = Survey.createSurveyList(10);
 
@@ -117,6 +120,17 @@ templatemenue templatemenue = new templatemenue();
        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, templatemenue).addToBackStack(null).commit();
 
 
+
+            }
+
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new reportHome()).addToBackStack(null).commit();
 
             }
 

@@ -32,8 +32,8 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="448dp"
-                    android:layout_height="107dp"
+                    android:layout_width="445dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -71,14 +71,30 @@
                 android:layout_height="62dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView1723455"
-                    android:layout_width="742dp"
+                <LinearLayout
+                    android:layout_width="744dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/que10"
-                    android:textColor="@color/Black"
-                    android:textSize="15sp" />
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/que101"
+                        android:textColor="@color/Black" />
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/que102"
+                        android:textColor="@color/Black" />
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/tep1opt2btn"
@@ -122,7 +138,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/shape_button"
                     android:text="@string/babtn"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/White"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -139,7 +155,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/shape_btn_new"
                     android:text="@string/save4"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/White"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -157,7 +173,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/shape_button1"
                     android:text="@string/share4"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/White"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -175,6 +191,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/shape_button2"
                     android:text="@string/delete4"
+                    android:textColor="@color/White"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 

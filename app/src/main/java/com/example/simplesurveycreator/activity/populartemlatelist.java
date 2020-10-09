@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplesurveycreator.R;
+import com.example.simplesurveycreator.model.Survey;
+import com.example.simplesurveycreator.utils.SurveyPreviousViewAdepter;
 
 import java.util.ArrayList;
 
@@ -45,8 +47,6 @@ public class populartemlatelist extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        Log.d(TAG, "onCreate: started");
-        initImageBitmaps();
     }
 
 
@@ -101,13 +101,19 @@ public class populartemlatelist extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_populartemlatelist, container, false);
 
 
+        Log.d(TAG, "onCreate: started");
+        initImageBitmaps();
         RecyclerView recyclerView  = (RecyclerView) rootView.findViewById(R.id.recycler_view2);
+        ArrayList<String> mNames = new ArrayList<>();
+        ArrayList<String> mImageUrls = new ArrayList<>();
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(container.getContext(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(container.getContext(),0));
+
+
 
 
         return rootView;

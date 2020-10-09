@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/CadetBlue">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -17,9 +18,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/surveyman"
             android:src="@drawable/img_home" />
 
@@ -29,48 +30,57 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
             android:id="@+id/btnBlank"
-            android:textColor="@color/WhiteSmoke"
-            android:backgroundTint="@color/LightSeaGreen"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:iconTint="@color/DimGray"
             android:layout_marginTop="20dp"
-            android:text="@string/blank_survey"
             android:width="300dp"
-            android:layout_width="wrap_content" />
+            android:backgroundTint="@color/LightSeaGreen"
+            android:text="@string/blank_survey"
+            android:textColor="@color/WhiteSmoke"
+            app:iconTint="@color/DimGray" />
+
         <Button
             android:id="@+id/btnChoose"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/WhiteSmoke"
-            android:backgroundTint="@color/RoyalBlue"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:iconTint="@color/DarkGray"
-            android:text="@string/choose_from_template"
+            android:layout_marginTop="10dp"
             android:width="300dp"
-            android:layout_width="wrap_content" />
+            android:backgroundTint="@color/RoyalBlue"
+            android:text="@string/choose_from_template"
+            android:textColor="@color/WhiteSmoke"
+            app:iconTint="@color/DarkGray" />
+
+        <Button
+            android:id="@+id/reportbtn"
+            android:layout_width="297dp"
+            android:layout_height="wrap_content"
+            android:background="@color/DarkSlateBlue"
+            android:text="@string/repotbtnmain"
+            android:textColor="@color/White" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
-        android:layout_height="0dp"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
-            android:text="@string/recent_activities"/>
+            android:layout_marginTop="10dp"
+            android:text="@string/recent_activities"
+            android:textSize="16sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_inventory"
@@ -82,7 +92,6 @@
             android:layout_marginBottom="50dp"
             android:scrollbars="vertical" />
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
