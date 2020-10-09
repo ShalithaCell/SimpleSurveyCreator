@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simplesurveycreator.R;
+import com.example.simplesurveycreator.model.Options;
 import com.example.simplesurveycreator.model.Questions;
 import com.example.simplesurveycreator.recyclerView.adapter.Model.CallBackListener;
 import com.example.simplesurveycreator.recyclerView.adapter.Model.QuestionAdapter;
@@ -36,6 +37,8 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
     private FabOption btnMultipleChoice;
 
+    private List<Options> options = new ArrayList<Options>();
+
     public surveyCreate() {
         // Required empty public constructor
     }
@@ -43,6 +46,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
     // TODO: Rename and change types and number of parameters
     public static surveyCreate newInstance() {
         surveyCreate fragment = new surveyCreate();
+
         return fragment;
     }
 
@@ -60,6 +64,11 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
         btnMultipleChoice = rootView.findViewById(R.id.btnMultipleChoice);
+
+        options.add(new Options("Option 1"));
+        options.add(new Options("Option 2"));
+        options.add(new Options("Option 3"));
+        options.add(new Options("Option 4"));
 
         mAdapter = new QuestionAdapter(questionList, getContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -87,7 +96,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
     public void LoadCustomerList(String questionName, QuestionTypes type){
         // questionList.clear();
-        questionList.add(new Questions(questionName));
+        questionList.add(new Questions(questionName, options));
         mAdapter.notifyDataSetChanged();
     }
 }
