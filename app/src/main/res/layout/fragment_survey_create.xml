@@ -176,6 +176,7 @@
                 app:label_text="Text"
                 app:label_backgroundColor="@color/transparent_blue"/>
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/btnMultipleChoice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_color="@color/Teal"
