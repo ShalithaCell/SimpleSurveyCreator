@@ -35,7 +35,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
     private RecyclerView recyclerView;
     private QuestionAdapter mAdapter;
 
-    private FabOption btnMultipleChoice;
+    private FabOption btnMultipleChoice, btnDropDown;
 
     private List<Options> options = new ArrayList<Options>();
 
@@ -64,6 +64,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
         btnMultipleChoice = rootView.findViewById(R.id.btnMultipleChoice);
+        btnDropDown = rootView.findViewById(R.id.btnDropDown);
 
         options.add(new Options("Option 1"));
         options.add(new Options("Option 2"));
@@ -86,6 +87,13 @@ public class surveyCreate extends Fragment implements CallBackListener {
             }
         });
 
+        btnDropDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadCustomerList("Question name", QuestionTypes.DROPDOWN);
+            }
+        });
+
         return rootView;
     }
 
@@ -96,7 +104,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
     public void LoadCustomerList(String questionName, QuestionTypes type){
         // questionList.clear();
-        questionList.add(new Questions(questionName, options));
+        questionList.add(new Questions(questionName, options, type));
         mAdapter.notifyDataSetChanged();
     }
 }

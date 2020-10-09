@@ -66,4 +66,7 @@ dependencies {
     //floating button
     implementation 'com.nambimobile.widgets:expandable-fab:1.0.1'
 
+    //spinner
+    implementation 'com.github.ganfra:material-spinner:2.0.0'
+
 }

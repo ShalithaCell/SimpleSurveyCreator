@@ -140,36 +140,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <CheckBox
+                <fr.ganfra.materialspinner.MaterialSpinner
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:checked="true"
-                    android:buttonTint="@color/end_blue"
-                    android:text="@string/option_1" />
-
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:checked="true"
-                    android:buttonTint="@color/end_blue"
-                    android:text="@string/option_2" />
-
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:checked="true"
-                    android:buttonTint="@color/end_blue"
-                    android:text="@string/option_3" />
-
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:checked="true"
-                    android:buttonTint="@color/end_blue"
-                    android:text="@string/option_4" />
+                    android:layout_height="wrap_content"
+                    app:ms_multiline="false"
+                    app:ms_hint="hint"
+                    app:ms_enableFloatingLabel="false"
+                    app:ms_enableErrorLabel="false"
+                    app:ms_floatingLabelText="floating label"
+                    app:ms_baseColor="@color/end_blue"
+                    app:ms_highlightColor="@color/colorA200"
+                    app:ms_errorColor="@color/Red"
+                    app:ms_thickness="2dp"
+                    app:ms_hintColor="@color/colorA200"
+                    app:ms_arrowColor="@color/list_divider"
+                    app:ms_arrowSize="16dp"
+                    app:ms_alignLabels="false"
+                    app:ms_floatingLabelColor="@color/gray_text_color"/>
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
