@@ -34,14 +34,11 @@ import java.util.List;
 import fr.ganfra.materialspinner.MaterialSpinner;
 import io.apptik.widget.multiselectspinner.MultiSelectSpinner;
 
-public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Questions> questionList;
     private Context context;
     private Application application;
-
-    private RecyclerView recyclerView;
-    private OptionAdaptor mAdapter;
 
     private List<Options> options = new ArrayList<Options>();
     String[] ITEMS = {"Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6"};
@@ -59,32 +56,33 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        MyViewHolder viewHolder;
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         if(viewType == QuestionTypes.MULTI_CHOICE.ordinal()){
-            View v1 = inflater.inflate(R.layout.question_type_drop_down, parent, false);
-            viewHolder = new QuestionAdapter.MyViewHolder(v1);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_drop_down, parent, false);
+            return new MultiChoiceHolder(view);
         }else if(viewType == QuestionTypes.DROPDOWN.ordinal()){
-            View v1 = inflater.inflate(R.layout.question_type_spinner, parent, false);
-            viewHolder = new QuestionAdapter.MyViewHolder(v1);
-        }else {
-            View v1 = inflater.inflate(R.layout.question_type_drop_down, parent, false);
-            viewHolder = new QuestionAdapter.MyViewHolder(v1);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_spinner, parent, false);
+            return new DropDownViewHolder(view);
+        }else if(viewType == QuestionTypes.TEXT.ordinal()){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_text, parent, false);
+            return new TextViewHolder(view);
         }
-
-        return (MyViewHolder) viewHolder;
+        else {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_drop_down, parent, false);
+            return new MultiChoiceHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Questions customers = questionList.get(position);
-        holder.viewTxtQuestion.setText(customers.getQuestionName());
-        holder.editTxtQuestion.setText(customers.getQuestionName());
-
-        holder.editTxtQuestion.setVisibility(View.INVISIBLE);
-        holder.layoutOptions.setVisibility(View.GONE);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if(holder.getItemViewType() == QuestionTypes.MULTI_CHOICE.ordinal()){
+            InitLayoutMultiChoice((MultiChoiceHolder)holder, position);
+        }else if(holder.getItemViewType() == QuestionTypes.DROPDOWN.ordinal()){
+            InitLayoutDropDown((DropDownViewHolder)holder, position);
+        }else if(holder.getItemViewType() == QuestionTypes.TEXT.ordinal()){
+            InitLayoutText((TextViewHolder)holder, position);
+        }
     }
 
     @Override
@@ -98,25 +96,55 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
             return QuestionTypes.MULTI_CHOICE.ordinal();
         }else if(questionList.get(position).getType() == QuestionTypes.DROPDOWN){
             return QuestionTypes.DROPDOWN.ordinal();
+        }else if(questionList.get(position).getType() == QuestionTypes.TEXT){
+            return QuestionTypes.TEXT.ordinal();
         }
         return -1;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+    private void InitLayoutMultiChoice(MultiChoiceHolder holder, int pos) {
+          Questions customers = questionList.get(pos);
+            holder.viewTxtQuestion.setText(customers.getQuestionName());
+        holder.viewTxtQuestion.setTag(customers.getTimeStamp());
+            holder.editTxtQuestion.setText(customers.getQuestionName());
 
+            holder.editTxtQuestion.setVisibility(View.INVISIBLE);
+            holder.layoutOptions.setVisibility(View.GONE);
+    }
+
+    private void InitLayoutDropDown(DropDownViewHolder holder, int pos) {
+        Questions customers = questionList.get(pos);
+        holder.viewTxtQuestion.setText(customers.getQuestionName());
+        holder.viewTxtQuestion.setTag(customers.getTimeStamp());
+        holder.editTxtQuestion.setText(customers.getQuestionName());
+
+        holder.editTxtQuestion.setVisibility(View.INVISIBLE);
+        holder.layoutOptions.setVisibility(View.GONE);
+    }
+
+    private void InitLayoutText(TextViewHolder holder, int pos) {
+        Questions customers = questionList.get(pos);
+        holder.viewTxtQuestion.setText(customers.getQuestionName());
+        holder.viewTxtQuestion.setTag(customers.getTimeStamp());
+        holder.editTxtQuestion.setText(customers.getQuestionName());
+
+        holder.editTxtQuestion.setVisibility(View.INVISIBLE);
+        holder.layoutOptions.setVisibility(View.GONE);
+    }
+
+    // Static inner class to initialize the views of rows
+    public class MultiChoiceHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
         public TextView viewTxtQuestion;
         public EditText editTxtQuestion;
         public ImageButton btnEdit, btnDelete;
         public ConstraintLayout layoutOptionsView;
         public LinearLayout layoutOptions;
-        public MaterialSpinner spinner;
 
-        MultiSelectSpinner multiSelectSpinner;
+        private RecyclerView recyclerView;
+        private OptionAdaptor mAdapter;
 
-
-        public MyViewHolder(@NonNull View itemView) {
+        public MultiChoiceHolder(View itemView) {
             super(itemView);
-
             viewTxtQuestion = (TextView) itemView.findViewById(R.id.lblQuestion);
             editTxtQuestion = (EditText) itemView.findViewById(R.id.txtQuestion);
 
@@ -135,17 +163,12 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
             recyclerView.addItemDecoration(new DividerItemDecoration(context.getApplicationContext(), LinearLayoutManager.VERTICAL));
             recyclerView.setAdapter(mAdapter);
 
-//            adapterDDL = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, ITEMS);
-//            adapterDDL.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            spinner = (MaterialSpinner) itemView.findViewById(R.id.spinner);
-//            spinner.setAdapter(adapterDDL);
-
             itemView.setOnClickListener(this);
             btnEdit.setOnClickListener(this);
             btnDelete.setOnClickListener(this);
+
+
         }
-
-
 
         @Override
         public void onClick(View view) {
@@ -172,11 +195,11 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
                         .setMessage("Are your sure want delete "+viewTxtQuestion.getText() + " ?")
 
                         .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-                                    }
-                                })
+                            }
+                        })
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -184,7 +207,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
 
                                 while (idx < questionList.size())
                                 {
-                                    if(questionList.get(idx).getQuestionName() == viewTxtQuestion.getText())
+                                    if(questionList.get(idx).getTimeStamp() == viewTxtQuestion.getTag())
                                     {
                                         // Remove item
                                         questionList.remove(idx);
@@ -206,4 +229,184 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
             return false;
         }
     }
+
+    public class DropDownViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+        public TextView viewTxtQuestion;
+        public EditText editTxtQuestion;
+        public ImageButton btnEdit, btnDelete;
+        public ConstraintLayout layoutOptionsView;
+        public LinearLayout layoutOptions;
+
+        private RecyclerView recyclerView;
+        private OptionAdaptor mAdapter;
+
+        public DropDownViewHolder(View itemView) {
+            super(itemView);
+            viewTxtQuestion = (TextView) itemView.findViewById(R.id.lblQuestion);
+            editTxtQuestion = (EditText) itemView.findViewById(R.id.txtQuestion);
+
+            btnEdit = (ImageButton) itemView.findViewById(R.id.btnEdit);
+            btnDelete = (ImageButton) itemView.findViewById(R.id.btnDelete);
+
+            layoutOptions = (LinearLayout) itemView.findViewById(R.id.layoutOptions);
+            layoutOptionsView = (ConstraintLayout) itemView.findViewById(R.id.layoutOptionsView);
+
+            recyclerView = (RecyclerView) itemView.findViewById(R.id.recycler_view_options);
+
+            mAdapter = new OptionAdaptor(options, context.getApplicationContext());
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context.getApplicationContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.addItemDecoration(new DividerItemDecoration(context.getApplicationContext(), LinearLayoutManager.VERTICAL));
+            recyclerView.setAdapter(mAdapter);
+
+            itemView.setOnClickListener(this);
+            btnEdit.setOnClickListener(this);
+            btnDelete.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == btnEdit.getId()){
+
+                if(viewTxtQuestion.getVisibility() == View.VISIBLE){
+                    viewTxtQuestion.setVisibility(View.INVISIBLE);
+                    editTxtQuestion.setVisibility(View.VISIBLE);
+                    layoutOptions.setVisibility(View.VISIBLE);
+                    layoutOptionsView.setVisibility(View.INVISIBLE);
+                    btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimaryConsultant), android.graphics.PorterDuff.Mode.SRC_IN);
+                    return;
+                }
+
+                viewTxtQuestion.setVisibility(View.VISIBLE);
+                editTxtQuestion.setVisibility(View.INVISIBLE);
+                layoutOptions.setVisibility(View.GONE);
+                layoutOptionsView.setVisibility(View.VISIBLE);
+                btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.efab_disabled_text), android.graphics.PorterDuff.Mode.SRC_IN);
+
+            }else if(view.getId() == btnDelete.getId()){
+                new MaterialAlertDialogBuilder(context, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                        .setTitle("Confirm to delete")
+                        .setMessage("Are your sure want delete "+viewTxtQuestion.getText() + " ?")
+
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int idx = 0;
+
+                                while (idx < questionList.size())
+                                {
+                                    if(questionList.get(idx).getTimeStamp() == viewTxtQuestion.getTag())
+                                    {
+                                        // Remove item
+                                        questionList.remove(idx);
+                                    }
+                                    else
+                                    {
+                                        ++idx;
+                                    }
+                                }
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .show();
+            }
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            return false;
+        }
+    }
+
+    public class TextViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+        public TextView viewTxtQuestion;
+        public EditText editTxtQuestion;
+        public ImageButton btnEdit, btnDelete;
+        public ConstraintLayout layoutOptionsView;
+        public LinearLayout layoutOptions;
+
+        public TextViewHolder(View itemView) {
+            super(itemView);
+            viewTxtQuestion = (TextView) itemView.findViewById(R.id.lblQuestion);
+            editTxtQuestion = (EditText) itemView.findViewById(R.id.txtQuestion);
+
+            btnEdit = (ImageButton) itemView.findViewById(R.id.btnEdit);
+            btnDelete = (ImageButton) itemView.findViewById(R.id.btnDelete);
+
+            layoutOptions = (LinearLayout) itemView.findViewById(R.id.layoutOptions);
+            layoutOptionsView = (ConstraintLayout) itemView.findViewById(R.id.layoutOptionsView);
+
+
+            itemView.setOnClickListener(this);
+            btnEdit.setOnClickListener(this);
+            btnDelete.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == btnEdit.getId()){
+
+                if(viewTxtQuestion.getVisibility() == View.VISIBLE){
+                    viewTxtQuestion.setVisibility(View.INVISIBLE);
+                    editTxtQuestion.setVisibility(View.VISIBLE);
+                    layoutOptions.setVisibility(View.VISIBLE);
+                    layoutOptionsView.setVisibility(View.INVISIBLE);
+                    btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimaryConsultant), android.graphics.PorterDuff.Mode.SRC_IN);
+                    return;
+                }
+
+                viewTxtQuestion.setVisibility(View.VISIBLE);
+                editTxtQuestion.setVisibility(View.INVISIBLE);
+                layoutOptions.setVisibility(View.GONE);
+                layoutOptionsView.setVisibility(View.VISIBLE);
+                btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.efab_disabled_text), android.graphics.PorterDuff.Mode.SRC_IN);
+
+            }else if(view.getId() == btnDelete.getId()){
+                new MaterialAlertDialogBuilder(context, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                        .setTitle("Confirm to delete")
+                        .setMessage("Are your sure want delete "+viewTxtQuestion.getText() + " ?")
+
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int idx = 0;
+
+                                while (idx < questionList.size())
+                                {
+                                    if(questionList.get(idx).getTimeStamp() == viewTxtQuestion.getTag())
+                                    {
+                                        // Remove item
+                                        questionList.remove(idx);
+                                    }
+                                    else
+                                    {
+                                        ++idx;
+                                    }
+                                }
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .show();
+            }
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            return false;
+        }
+    }
+
 }

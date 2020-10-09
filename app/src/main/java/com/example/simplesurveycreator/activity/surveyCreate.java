@@ -21,8 +21,10 @@ import com.example.simplesurveycreator.recyclerView.adapter.Model.QuestionAdapte
 import com.example.simplesurveycreator.utils.QuestionTypes;
 import com.nambimobile.widgets.efab.FabOption;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +37,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
     private RecyclerView recyclerView;
     private QuestionAdapter mAdapter;
 
-    private FabOption btnMultipleChoice, btnDropDown;
+    private FabOption btnMultipleChoice, btnDropDown, btnText;
 
     private List<Options> options = new ArrayList<Options>();
 
@@ -65,6 +67,8 @@ public class surveyCreate extends Fragment implements CallBackListener {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
         btnMultipleChoice = rootView.findViewById(R.id.btnMultipleChoice);
         btnDropDown = rootView.findViewById(R.id.btnDropDown);
+        btnText = rootView.findViewById(R.id.btnText);
+
 
         options.add(new Options("Option 1"));
         options.add(new Options("Option 2"));
@@ -94,6 +98,13 @@ public class surveyCreate extends Fragment implements CallBackListener {
             }
         });
 
+        btnText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadCustomerList("Question name", QuestionTypes.TEXT);
+            }
+        });
+
         return rootView;
     }
 
@@ -104,7 +115,9 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
     public void LoadCustomerList(String questionName, QuestionTypes type){
         // questionList.clear();
-        questionList.add(new Questions(questionName, options, type));
+        String timeStamp = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()));
+
+        questionList.add(new Questions(timeStamp, questionName, options, type));
         mAdapter.notifyDataSetChanged();
     }
 }
