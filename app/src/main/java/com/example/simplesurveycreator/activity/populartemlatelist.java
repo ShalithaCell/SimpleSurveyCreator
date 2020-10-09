@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplesurveycreator.R;
-import com.example.simplesurveycreator.model.Survey;
-import com.example.simplesurveycreator.utils.SurveyPreviousViewAdepter;
 
 import java.util.ArrayList;
 
