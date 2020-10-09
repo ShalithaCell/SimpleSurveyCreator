@@ -17,6 +17,7 @@ import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.model.Questions;
 import com.example.simplesurveycreator.recyclerView.adapter.Model.CallBackListener;
 import com.example.simplesurveycreator.recyclerView.adapter.Model.QuestionAdapter;
+import com.example.simplesurveycreator.utils.QuestionTypes;
 import com.nambimobile.widgets.efab.FabOption;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import java.util.List;
  */
 public class surveyCreate extends Fragment implements CallBackListener {
 
-    public static List<Questions> questionList = new ArrayList<>();
+    public List<Questions> questionList = new ArrayList<>();
     private RecyclerView recyclerView;
     private QuestionAdapter mAdapter;
 
@@ -67,12 +68,12 @@ public class surveyCreate extends Fragment implements CallBackListener {
         recyclerView.addItemDecoration(new DividerItemDecoration(container.getContext(), LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
-        LoadCustomerList();
+        LoadCustomerList("Question name", QuestionTypes.MULTI_CHOICE);
 
         btnMultipleChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String c = "sd";
+                LoadCustomerList("Question name", QuestionTypes.MULTI_CHOICE);
             }
         });
 
@@ -84,9 +85,9 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
     }
 
-    public void LoadCustomerList(){
+    public void LoadCustomerList(String questionName, QuestionTypes type){
         // questionList.clear();
-        questionList.add(new Questions("test"));
+        questionList.add(new Questions(questionName));
         mAdapter.notifyDataSetChanged();
     }
 }

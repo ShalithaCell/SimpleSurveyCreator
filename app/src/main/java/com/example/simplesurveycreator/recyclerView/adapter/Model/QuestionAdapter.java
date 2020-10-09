@@ -2,6 +2,7 @@ package com.example.simplesurveycreator.recyclerView.adapter.Model;
 
 import android.app.Application;
 import android.content.Context;
+import android.media.tv.TvView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +75,11 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
 
         @Override
         public void onClick(View view) {
+            if (view.getId() == btnEdit.getId()){
+                viewTxtQuestion.setVisibility(View.INVISIBLE);
+                editTxtQuestion.setVisibility(View.VISIBLE);
 
+            }
         }
 
         @Override
