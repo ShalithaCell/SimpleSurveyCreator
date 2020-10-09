@@ -13,16 +13,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.PopupWindow;
-
 import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.model.Survey;
-import com.example.simplesurveycreator.utils.SurveyPreviousViewAdepter;
+import com.example.simplesurveycreator.recyclerView.adapter.Model.SurveyPreviousViewAdepter;
 
 import java.util.ArrayList;
 
