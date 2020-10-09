@@ -9,13 +9,15 @@
 
     <TextView
         android:id="@+id/sampleteplistbtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:background="@color/RoyalBlue"
         android:text="@string/populerlisttitl"
-        android:textColor="@color/Black"
+        android:textColor="@color/White"
+        android:textColorHint="@color/White"
         android:textSize="24sp"
         android:textStyle="normal|bold"
         app:layout_constraintEnd_toEndOf="parent"
