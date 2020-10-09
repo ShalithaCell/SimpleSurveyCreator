@@ -52,7 +52,8 @@ dependencies {
     //card view
     implementation 'androidx.cardview:cardview:1.0.0'
 
-
+    //multi select
+    implementation 'io.apptik.widget:multiselectspinner:1.0.12'
 
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:30.0.0'
@@ -64,5 +65,8 @@ dependencies {
 
     //floating button
     implementation 'com.nambimobile.widgets:expandable-fab:1.0.1'
+
+    //spinner
+    implementation 'com.github.ganfra:material-spinner:2.0.0'
 
 }

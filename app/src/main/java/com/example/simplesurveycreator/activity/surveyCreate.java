@@ -14,14 +14,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simplesurveycreator.R;
+import com.example.simplesurveycreator.model.Options;
 import com.example.simplesurveycreator.model.Questions;
 import com.example.simplesurveycreator.recyclerView.adapter.Model.CallBackListener;
 import com.example.simplesurveycreator.recyclerView.adapter.Model.QuestionAdapter;
 import com.example.simplesurveycreator.utils.QuestionTypes;
 import com.nambimobile.widgets.efab.FabOption;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +37,9 @@ public class surveyCreate extends Fragment implements CallBackListener {
     private RecyclerView recyclerView;
     private QuestionAdapter mAdapter;
 
-    private FabOption btnMultipleChoice;
+    private FabOption btnMultipleChoice, btnDropDown, btnText;
+
+    private List<Options> options = new ArrayList<Options>();
 
     public surveyCreate() {
         // Required empty public constructor
@@ -43,6 +48,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
     // TODO: Rename and change types and number of parameters
     public static surveyCreate newInstance() {
         surveyCreate fragment = new surveyCreate();
+
         return fragment;
     }
 
@@ -60,6 +66,14 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
         btnMultipleChoice = rootView.findViewById(R.id.btnMultipleChoice);
+        btnDropDown = rootView.findViewById(R.id.btnDropDown);
+        btnText = rootView.findViewById(R.id.btnText);
+
+
+        options.add(new Options("Option 1"));
+        options.add(new Options("Option 2"));
+        options.add(new Options("Option 3"));
+        options.add(new Options("Option 4"));
 
         mAdapter = new QuestionAdapter(questionList, getContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -77,6 +91,20 @@ public class surveyCreate extends Fragment implements CallBackListener {
             }
         });
 
+        btnDropDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadCustomerList("Question name", QuestionTypes.DROPDOWN);
+            }
+        });
+
+        btnText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadCustomerList("Question name", QuestionTypes.TEXT);
+            }
+        });
+
         return rootView;
     }
 
@@ -87,7 +115,9 @@ public class surveyCreate extends Fragment implements CallBackListener {
 
     public void LoadCustomerList(String questionName, QuestionTypes type){
         // questionList.clear();
-        questionList.add(new Questions(questionName));
+        String timeStamp = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()));
+
+        questionList.add(new Questions(timeStamp, questionName, options, type));
         mAdapter.notifyDataSetChanged();
     }
 }
