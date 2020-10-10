@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,8 +19,8 @@ import com.example.simplesurveycreator.R;
  */
 public class templatemenue extends Fragment {
 
-    private TextView btn1;
-    private ConstraintLayout btn2;
+    private ImageView btn1;
+    private TextView btn2;
 
 
     public templatemenue() {
