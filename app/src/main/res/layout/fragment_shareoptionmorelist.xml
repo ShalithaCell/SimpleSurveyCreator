@@ -60,7 +60,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="11dp"
+            android:layout_height="7dp"
             android:background="@color/DarkSlateBlue"
             android:orientation="vertical"></LinearLayout>
 
@@ -365,11 +365,11 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="12dp"
+                android:layout_height="7dp"
                 android:background="@color/Navy"
                 android:orientation="vertical"></LinearLayout>
 
@@ -381,7 +381,7 @@
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="match_parent"
-                    android:layout_height="37dp"
+                    android:layout_height="36dp"
                     android:text="@string/shareqrcode"
                     android:textAlignment="center"
                     android:textColor="@color/Black"
@@ -393,21 +393,21 @@
                     android:orientation="horizontal">
 
                     <Space
-                        android:layout_width="44dp"
+                        android:layout_width="87dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 
                     <ImageView
                         android:id="@+id/imageView15"
-                        android:layout_width="245dp"
-                        android:layout_height="65dp"
+                        android:layout_width="224dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/qrcode"
                         tools:src="@tools:sample/avatars" />
 
                     <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="67dp"
+                        android:layout_height="83dp"
                         android:layout_weight="1" />
                 </LinearLayout>
             </LinearLayout>
