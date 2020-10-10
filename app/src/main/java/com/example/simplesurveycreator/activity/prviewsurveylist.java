@@ -17,7 +17,7 @@ import com.example.simplesurveycreator.R;
 
 public class prviewsurveylist extends Fragment {
 
-    private ImageView btn1,btn2;
+    private ImageView btn1,btn2,btn3;
 
     public prviewsurveylist() {
         // Required empty public constructor
@@ -44,7 +44,7 @@ public class prviewsurveylist extends Fragment {
 
         btn1 = rootView.findViewById(R.id.previewlist_edit_btn);
         btn2 = rootView.findViewById(R.id.deletebtn_priew);
-
+        btn3 = rootView.findViewById(R.id.viewchatsbtn);
 
 
 
@@ -54,6 +54,17 @@ public class prviewsurveylist extends Fragment {
             public void onClick(View view) {
 
                 getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new customerfeedbacktem1()).addToBackStack(null).commit();
+
+            }
+
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new reportHome()).addToBackStack(null).commit();
 
             }
 
@@ -70,7 +81,7 @@ public class prviewsurveylist extends Fragment {
 
                 builder.setCancelable(true);
                 builder.setTitle("Delete Record");
-                builder.setMessage("Are you sure delete the record?");
+                builder.setMessage("Are you sure delete the survey?");
 
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
