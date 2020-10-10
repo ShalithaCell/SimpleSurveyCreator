@@ -1,8 +1,10 @@
 package com.example.simplesurveycreator.activity;
 
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -75,8 +77,26 @@ public class customerfeedbacktem4 extends Fragment {
 
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new successfulysaved()).addToBackStack(null).commit();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
+                builder.setCancelable(true);
+                builder.setTitle("Save Create Survey");
+                builder.setMessage("Are you sure save the survey?");
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new prviewsurveylist()).addToBackStack(null).commit();
+                    }
+                });
+                builder.show();
             }
 
         });
@@ -97,8 +117,26 @@ public class customerfeedbacktem4 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Deletemsg()).addToBackStack(null).commit();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
+                builder.setCancelable(true);
+                builder.setTitle("Delete Create Survey");
+                builder.setMessage("Are you sure delete the survey?");
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new templatemenue()).addToBackStack(null).commit();
+                    }
+                });
+                builder.show();
             }
 
         });
