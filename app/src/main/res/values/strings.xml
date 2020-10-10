@@ -201,4 +201,11 @@
     <string name="create786">Create On : 2020/07/12</string>
     <string name="eproducysurvey">Product Survey</string>
     <string name="createon89">Create On : 2020/08/23</string>
+    <string name="activate_your_survey">Activate your survey</string>
+    <string name="inactive">Inactive</string>
+    <string name="title">Title</string>
+    <string name="start_date">Start date</string>
+    <string name="end_date">End date</string>
+    <string name="active_and_publish">Active and Publish</string>
+    <string name="save_and_edit">Save and Edit</string>
 </resources>

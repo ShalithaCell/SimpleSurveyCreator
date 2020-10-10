@@ -44,7 +44,7 @@ public class NewSurveyPopup extends DialogFragment {
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new surveyCreate()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new surveyCreate()).addToBackStack(null).commit();
                 dismiss();
             }
         });

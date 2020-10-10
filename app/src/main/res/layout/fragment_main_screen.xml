@@ -57,6 +57,7 @@
             app:iconTint="@color/DarkGray" />
 
         <Button
+            android:visibility="gone"
             android:id="@+id/reportbtn"
             android:layout_width="297dp"
             android:layout_height="wrap_content"

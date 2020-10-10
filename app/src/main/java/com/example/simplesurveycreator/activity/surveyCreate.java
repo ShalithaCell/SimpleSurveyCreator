@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.model.Options;
@@ -36,6 +38,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
     public List<Questions> questionList = new ArrayList<>();
     private RecyclerView recyclerView;
     private QuestionAdapter mAdapter;
+    private ImageView btnPublish;
 
     private FabOption btnMultipleChoice, btnDropDown, btnText, btnFaces, btnRating, btnPoints;
 
@@ -71,6 +74,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
         btnFaces = rootView.findViewById(R.id.btnFaces);
         btnRating = rootView.findViewById(R.id.btnRating);
         btnPoints = rootView.findViewById(R.id.btnPoints);
+        btnPublish = rootView.findViewById(R.id.btnPublish);
 
         options.add(new Options("Option 1"));
         options.add(new Options("Option 2"));
@@ -85,6 +89,13 @@ public class surveyCreate extends Fragment implements CallBackListener {
         recyclerView.setAdapter(mAdapter);
 
         LoadCustomerList("Question name", QuestionTypes.MULTI_CHOICE);
+
+        btnPublish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new SurveyPublishFragment()).addToBackStack(null).addToBackStack(null).commit();
+            }
+        });
 
         btnMultipleChoice.setOnClickListener(new View.OnClickListener() {
             @Override
