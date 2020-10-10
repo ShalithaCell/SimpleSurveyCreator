@@ -125,7 +125,7 @@
             <com.nambimobile.widgets.efab.Overlay
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:overlay_color="@color/transparent_blue"
+                app:overlay_color="@color/list_item_background"
                 app:overlay_alpha="0.75"
                 app:overlay_openingAnimationDurationMs="1000"/>
 
@@ -138,6 +138,7 @@
                 app:label_backgroundColor="@color/transparent_blue"/>
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/btnPoints"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_color="@color/Teal"
@@ -146,6 +147,7 @@
                 app:label_backgroundColor="@color/transparent_blue"/>
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/btnFaces"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_color="@color/Teal"
@@ -154,6 +156,7 @@
                 app:label_backgroundColor="@color/transparent_blue"/>
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/btnRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_color="@color/Teal"
