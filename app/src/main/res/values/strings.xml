@@ -126,7 +126,7 @@
     <string name="okbtn7">OK</string>
     <string name="back78">Back</string>
     <string name="exiy">Exit</string>
-    <string name="writeyouanswe">    Write Your answere here</string>
+    <string name="writeyouanswe">Write Your answere here</string>
     <string name="savemsg">Successfuly Saved !</string>
     <string name="newq1">4.How would you rate value for money of the      product?</string>
     <string name="newqq3">3.How would you rate the value for money of the      product?</string>
@@ -137,11 +137,15 @@
     <string name="survey_popup_hint">Start with a black survey project and build it to suit you needs</string>
     <string name="cancel">Cancel</string>
     <string name="get_started">Get started</string>
-    <string name="previewsurveylist">"Preview Survey List "</string>
     <string name="EmployeefeedbackForm">Employee Feedback Form</string>
     <string name="Creaton29">Create On : 2020/07/12</string>
     <string name="producysurvey">Product Survey</string>
     <string name="createon78">Create On : 2020/08/17</string>
     <string name="cusmrfedbck">Customer Feedback</string>
     <string name="createon7890">2020/10/12</string>
+    <string name="previewsurveylist">Preview Survey List</string>
+    <string name="eEmployeefeedbackForm">Employee Feedback Form</string>
+    <string name="create786">Create On : 2020/07/12</string>
+    <string name="eproducysurvey">Product Survey</string>
+    <string name="createon89">Create On : 2020/08/23</string>
 </resources>
