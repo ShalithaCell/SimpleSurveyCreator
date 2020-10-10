@@ -37,7 +37,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
     private RecyclerView recyclerView;
     private QuestionAdapter mAdapter;
 
-    private FabOption btnMultipleChoice, btnDropDown, btnText;
+    private FabOption btnMultipleChoice, btnDropDown, btnText, btnFaces, btnRating, btnPoints;
 
     private List<Options> options = new ArrayList<Options>();
 
@@ -68,7 +68,9 @@ public class surveyCreate extends Fragment implements CallBackListener {
         btnMultipleChoice = rootView.findViewById(R.id.btnMultipleChoice);
         btnDropDown = rootView.findViewById(R.id.btnDropDown);
         btnText = rootView.findViewById(R.id.btnText);
-
+        btnFaces = rootView.findViewById(R.id.btnFaces);
+        btnRating = rootView.findViewById(R.id.btnRating);
+        btnPoints = rootView.findViewById(R.id.btnPoints);
 
         options.add(new Options("Option 1"));
         options.add(new Options("Option 2"));
@@ -104,6 +106,28 @@ public class surveyCreate extends Fragment implements CallBackListener {
                 LoadCustomerList("Question name", QuestionTypes.TEXT);
             }
         });
+
+        btnFaces.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadCustomerList("Question name", QuestionTypes.FACES);
+            }
+        });
+
+        btnRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadCustomerList("Question name", QuestionTypes.RATING);
+            }
+        });
+
+        btnPoints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadCustomerList("Question name", QuestionTypes.POINTS);
+            }
+        });
+
 
         return rootView;
     }

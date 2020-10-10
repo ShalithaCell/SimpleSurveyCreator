@@ -67,6 +67,16 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }else if(viewType == QuestionTypes.TEXT.ordinal()){
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_text, parent, false);
             return new TextViewHolder(view);
+        }else if(viewType == QuestionTypes.FACES.ordinal()){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_face, parent, false);
+            return new FaceViewHolder(view);
+        }else if(viewType == QuestionTypes.RATING.ordinal()){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_rating, parent, false);
+            return new RatingViewHolder(view);
+        }
+        else if(viewType == QuestionTypes.POINTS.ordinal()){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_points, parent, false);
+            return new PointsViewHolder(view);
         }
         else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.question_type_drop_down, parent, false);
@@ -82,6 +92,12 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             InitLayoutDropDown((DropDownViewHolder)holder, position);
         }else if(holder.getItemViewType() == QuestionTypes.TEXT.ordinal()){
             InitLayoutText((TextViewHolder)holder, position);
+        }else if(holder.getItemViewType() == QuestionTypes.FACES.ordinal()){
+            InitLayoutFace((FaceViewHolder)holder, position);
+        }else if(holder.getItemViewType() == QuestionTypes.RATING.ordinal()){
+            InitLayoutRating((RatingViewHolder)holder, position);
+        }else if(holder.getItemViewType() == QuestionTypes.POINTS.ordinal()){
+            InitLayoutPoints((PointsViewHolder) holder, position);
         }
     }
 
@@ -98,6 +114,12 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             return QuestionTypes.DROPDOWN.ordinal();
         }else if(questionList.get(position).getType() == QuestionTypes.TEXT){
             return QuestionTypes.TEXT.ordinal();
+        }else if(questionList.get(position).getType() == QuestionTypes.FACES){
+            return QuestionTypes.FACES.ordinal();
+        }else if(questionList.get(position).getType() == QuestionTypes.RATING){
+            return QuestionTypes.RATING.ordinal();
+        }else if(questionList.get(position).getType() == QuestionTypes.POINTS){
+            return QuestionTypes.POINTS.ordinal();
         }
         return -1;
     }
@@ -130,6 +152,33 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         holder.editTxtQuestion.setVisibility(View.INVISIBLE);
         holder.layoutOptions.setVisibility(View.GONE);
+    }
+
+    private void InitLayoutFace(FaceViewHolder holder, int pos) {
+        Questions customers = questionList.get(pos);
+        holder.viewTxtQuestion.setText(customers.getQuestionName());
+        holder.viewTxtQuestion.setTag(customers.getTimeStamp());
+        holder.editTxtQuestion.setText(customers.getQuestionName());
+
+        holder.editTxtQuestion.setVisibility(View.INVISIBLE);
+    }
+
+    private void InitLayoutRating(RatingViewHolder holder, int pos) {
+        Questions customers = questionList.get(pos);
+        holder.viewTxtQuestion.setText(customers.getQuestionName());
+        holder.viewTxtQuestion.setTag(customers.getTimeStamp());
+        holder.editTxtQuestion.setText(customers.getQuestionName());
+
+        holder.editTxtQuestion.setVisibility(View.INVISIBLE);
+    }
+
+    private void InitLayoutPoints(PointsViewHolder holder, int pos) {
+        Questions customers = questionList.get(pos);
+        holder.viewTxtQuestion.setText(customers.getQuestionName());
+        holder.viewTxtQuestion.setTag(customers.getTimeStamp());
+        holder.editTxtQuestion.setText(customers.getQuestionName());
+
+        holder.editTxtQuestion.setVisibility(View.INVISIBLE);
     }
 
     // Static inner class to initialize the views of rows
@@ -402,6 +451,248 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                         .show();
             }
         }
+
+
+
+        @Override
+        public boolean onLongClick(View view) {
+            return false;
+        }
+    }
+
+    public class FaceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+        public TextView viewTxtQuestion;
+        public EditText editTxtQuestion;
+        public ImageButton btnEdit, btnDelete;
+        public LinearLayout layoutOptions;
+
+        public FaceViewHolder(View itemView) {
+            super(itemView);
+            viewTxtQuestion = (TextView) itemView.findViewById(R.id.lblQuestion);
+            editTxtQuestion = (EditText) itemView.findViewById(R.id.txtQuestion);
+
+            btnEdit = (ImageButton) itemView.findViewById(R.id.btnEdit);
+            btnDelete = (ImageButton) itemView.findViewById(R.id.btnDelete);
+
+            layoutOptions = (LinearLayout) itemView.findViewById(R.id.layoutOptions);
+
+
+            itemView.setOnClickListener(this);
+            btnEdit.setOnClickListener(this);
+            btnDelete.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == btnEdit.getId()){
+
+                if(viewTxtQuestion.getVisibility() == View.VISIBLE){
+                    viewTxtQuestion.setVisibility(View.INVISIBLE);
+                    editTxtQuestion.setVisibility(View.VISIBLE);
+                    btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimaryConsultant), android.graphics.PorterDuff.Mode.SRC_IN);
+                    return;
+                }
+
+                viewTxtQuestion.setVisibility(View.VISIBLE);
+                editTxtQuestion.setVisibility(View.INVISIBLE);
+                btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.efab_disabled_text), android.graphics.PorterDuff.Mode.SRC_IN);
+
+            }else if(view.getId() == btnDelete.getId()){
+                new MaterialAlertDialogBuilder(context, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                        .setTitle("Confirm to delete")
+                        .setMessage("Are your sure want delete "+viewTxtQuestion.getText() + " ?")
+
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int idx = 0;
+
+                                while (idx < questionList.size())
+                                {
+                                    if(questionList.get(idx).getTimeStamp() == viewTxtQuestion.getTag())
+                                    {
+                                        // Remove item
+                                        questionList.remove(idx);
+                                    }
+                                    else
+                                    {
+                                        ++idx;
+                                    }
+                                }
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .show();
+            }
+        }
+
+
+
+        @Override
+        public boolean onLongClick(View view) {
+            return false;
+        }
+    }
+
+    public class RatingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+        public TextView viewTxtQuestion;
+        public EditText editTxtQuestion;
+        public ImageButton btnEdit, btnDelete;
+        public LinearLayout layoutOptions;
+
+        public RatingViewHolder(View itemView) {
+            super(itemView);
+            viewTxtQuestion = (TextView) itemView.findViewById(R.id.lblQuestion);
+            editTxtQuestion = (EditText) itemView.findViewById(R.id.txtQuestion);
+
+            btnEdit = (ImageButton) itemView.findViewById(R.id.btnEdit);
+            btnDelete = (ImageButton) itemView.findViewById(R.id.btnDelete);
+
+            layoutOptions = (LinearLayout) itemView.findViewById(R.id.layoutOptions);
+
+
+            itemView.setOnClickListener(this);
+            btnEdit.setOnClickListener(this);
+            btnDelete.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == btnEdit.getId()){
+
+                if(viewTxtQuestion.getVisibility() == View.VISIBLE){
+                    viewTxtQuestion.setVisibility(View.INVISIBLE);
+                    editTxtQuestion.setVisibility(View.VISIBLE);
+                    btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimaryConsultant), android.graphics.PorterDuff.Mode.SRC_IN);
+                    return;
+                }
+
+                viewTxtQuestion.setVisibility(View.VISIBLE);
+                editTxtQuestion.setVisibility(View.INVISIBLE);
+                btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.efab_disabled_text), android.graphics.PorterDuff.Mode.SRC_IN);
+
+            }else if(view.getId() == btnDelete.getId()){
+                new MaterialAlertDialogBuilder(context, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                        .setTitle("Confirm to delete")
+                        .setMessage("Are your sure want delete "+viewTxtQuestion.getText() + " ?")
+
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int idx = 0;
+
+                                while (idx < questionList.size())
+                                {
+                                    if(questionList.get(idx).getTimeStamp() == viewTxtQuestion.getTag())
+                                    {
+                                        // Remove item
+                                        questionList.remove(idx);
+                                    }
+                                    else
+                                    {
+                                        ++idx;
+                                    }
+                                }
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .show();
+            }
+        }
+
+
+
+        @Override
+        public boolean onLongClick(View view) {
+            return false;
+        }
+    }
+
+    public class PointsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+        public TextView viewTxtQuestion;
+        public EditText editTxtQuestion;
+        public ImageButton btnEdit, btnDelete;
+        public LinearLayout layoutOptions;
+
+        public PointsViewHolder(View itemView) {
+            super(itemView);
+            viewTxtQuestion = (TextView) itemView.findViewById(R.id.lblQuestion);
+            editTxtQuestion = (EditText) itemView.findViewById(R.id.txtQuestion);
+
+            btnEdit = (ImageButton) itemView.findViewById(R.id.btnEdit);
+            btnDelete = (ImageButton) itemView.findViewById(R.id.btnDelete);
+
+            layoutOptions = (LinearLayout) itemView.findViewById(R.id.layoutOptions);
+
+
+            itemView.setOnClickListener(this);
+            btnEdit.setOnClickListener(this);
+            btnDelete.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == btnEdit.getId()){
+
+                if(viewTxtQuestion.getVisibility() == View.VISIBLE){
+                    viewTxtQuestion.setVisibility(View.INVISIBLE);
+                    editTxtQuestion.setVisibility(View.VISIBLE);
+                    btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimaryConsultant), android.graphics.PorterDuff.Mode.SRC_IN);
+                    return;
+                }
+
+                viewTxtQuestion.setVisibility(View.VISIBLE);
+                editTxtQuestion.setVisibility(View.INVISIBLE);
+                btnEdit.setColorFilter(ContextCompat.getColor(context, R.color.efab_disabled_text), android.graphics.PorterDuff.Mode.SRC_IN);
+
+            }else if(view.getId() == btnDelete.getId()){
+                new MaterialAlertDialogBuilder(context, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                        .setTitle("Confirm to delete")
+                        .setMessage("Are your sure want delete "+viewTxtQuestion.getText() + " ?")
+
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int idx = 0;
+
+                                while (idx < questionList.size())
+                                {
+                                    if(questionList.get(idx).getTimeStamp() == viewTxtQuestion.getTag())
+                                    {
+                                        // Remove item
+                                        questionList.remove(idx);
+                                    }
+                                    else
+                                    {
+                                        ++idx;
+                                    }
+                                }
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .show();
+            }
+        }
+
+
 
         @Override
         public boolean onLongClick(View view) {
