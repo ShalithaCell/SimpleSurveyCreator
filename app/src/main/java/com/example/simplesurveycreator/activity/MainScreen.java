@@ -67,7 +67,7 @@ public class MainScreen extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_main_screen, container, false);
 
-        btn1 = (Button)rootView.findViewById(R.id.btnChoose);
+        btn1 = (Button)rootView.findViewById(R.id.chosetembtn);
         btn2 = (Button)rootView.findViewById(R.id.reportbtn);
         btnNewSurvey = (Button) rootView.findViewById(R.id.btnBlank) ;
 
@@ -103,7 +103,7 @@ public class MainScreen extends Fragment {
         });
 
 
-templatemenue templatemenue = new templatemenue();
+        templatemenue templatemenue = new templatemenue();
 
         btn1.setOnClickListener(new View.OnClickListener() {
 

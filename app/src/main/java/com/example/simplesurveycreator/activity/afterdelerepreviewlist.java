@@ -28,6 +28,11 @@ public class afterdelerepreviewlist extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new MainScreen()).addToBackStack(null).commit();
+
+
+
     }
 
     @Override

@@ -1,26 +1,29 @@
 package com.example.simplesurveycreator.activity;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-
-import androidx.fragment.app.Fragment;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.simplesurveycreator.R;
 
 
-public class customerfeedbacktem1 extends Fragment {
-    private Button btn1,btn2;
+public class populertemplist4 extends Fragment {
+private ImageView btn1;
+private TextView btn2;
 
-    public customerfeedbacktem1() {
+    public populertemplist4() {
         // Required empty public constructor
     }
 
 
-    public static customerfeedbacktem1 newInstance(String param1, String param2) {
-        customerfeedbacktem1 fragment = new customerfeedbacktem1();
+    public static populertemplist4 newInstance(String param1, String param2) {
+        populertemplist4 fragment = new populertemplist4();
 
         return fragment;
     }
@@ -35,18 +38,17 @@ public class customerfeedbacktem1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_customerfeedbacktem1, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_populertemplist4, container, false);
 
-        btn1 = rootView.findViewById(R.id.tep3bt1);
-        btn2 = rootView.findViewById(R.id.tep1backbtn);
+        btn1 = rootView.findViewById(R.id.custmfeedbtn1);
+        btn2 = rootView.findViewById(R.id.custmfeedbtn2);
 
         btn1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new populertemplist4()).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new customerfeedbacktem1()).addToBackStack(null).commit();
 
             }
 
@@ -59,7 +61,7 @@ public class customerfeedbacktem1 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new customerfeedbacktem2()).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new customerfeedbacktem1()).addToBackStack(null).commit();
 
             }
 

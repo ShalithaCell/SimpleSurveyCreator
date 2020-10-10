@@ -46,13 +46,13 @@ public class templatemenue extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_templatemenue, container, false);
 
-        btn1 = rootView.findViewById(R.id.sampleteplistbtn2);
-        btn2 = rootView.findViewById(R.id.f1btn);
+        btn1 = rootView.findViewById(R.id.sampleteplistbtn1);
+        btn2 = rootView.findViewById(R.id.sampleteplistbtn2);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new customerfeedbacktem1()).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new populertemplist4()).addToBackStack(null).commit();
 
             }
 
@@ -63,7 +63,7 @@ public class templatemenue extends Fragment {
             @Override
             public void onClick(View view) {
 
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new populartemlatelist()).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new populertemplist4()).addToBackStack(null).commit();
             }
 
         });
