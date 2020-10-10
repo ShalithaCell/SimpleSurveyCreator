@@ -103,7 +103,7 @@ public class MainScreen extends Fragment {
         });
 
 
-templatemenue templatemenue = new templatemenue();
+        templatemenue templatemenue = new templatemenue();
 
         btn1.setOnClickListener(new View.OnClickListener() {
 
