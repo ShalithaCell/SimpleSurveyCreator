@@ -86,12 +86,6 @@
                         android:text="@string/custemq1"
                         android:textColor="@color/Black" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="@color/DarkGray"
-                        android:text="@string/q2a2" />
                 </LinearLayout>
 
                 <ImageView
@@ -101,6 +95,13 @@
                     android:layout_weight="1"
                     android:src="@drawable/moreic" />
             </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/DarkGray"
+                android:text="@string/q2a2" />
 
             <RadioButton
                 android:id="@+id/radioButton"
