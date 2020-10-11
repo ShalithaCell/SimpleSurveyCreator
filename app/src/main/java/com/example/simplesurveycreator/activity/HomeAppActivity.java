@@ -52,9 +52,15 @@ public class HomeAppActivity extends AppCompatActivity {
                     DialogFragment newFragment = new NewSurveyPopup();
                     assert getFragmentManager() != null;
                     newFragment.show(getSupportFragmentManager(), "DatePicker");
+                }
+                else if(itemIndex == 1) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new prviewsurveylist()).addToBackStack(null).commit();
                 }else if(itemIndex == 2){
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new reportHome()).addToBackStack(null).commit();
                 }
+            else if(itemIndex == 3){
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new userDetails()).addToBackStack(null).commit();
+            }
 
             }
 
