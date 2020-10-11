@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mat_bg"
     tools:context=".activity.Signup">
 
         <com.google.android.material.textview.MaterialTextView
@@ -14,7 +15,6 @@
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="50dp"
-
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,136 +35,153 @@
             app:layout_constraintVertical_bias="0.036">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/sampleteplistbtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="143dp"
                 android:layout_marginEnd="140dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/app_logo"/>
         </RelativeLayout>
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="User Name"
-        android:textAlignment="center"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="276dp"
+        android:layout_height="400dp"
+        android:background="@drawable/backgroud_rounded"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColorHint="@color/colorA200"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.359">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Email"
-        android:textAlignment="center"
-        android:textColorHint="@color/colorA200"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintVertical_bias="0.019" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone"
-        android:hint="Mobile"
-        android:textAlignment="center"
-        android:textColorHint="@color/colorA200"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintVertical_bias="0.024" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textVisiblePassword"
-        android:hint="Password"
-        android:textAlignment="center"
-        android:textColorHint="@color/colorA200"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
-        app:layout_constraintVertical_bias="0.036" />
-
-
-    <Button
-        android:id="@+id/button"
-        android:text="Sign Up"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:shadowColor="#673AB7"
-        android:textColor="@color/colorSuccess"
-        android:textColorHighlight="@color/colorSuccess"
-        android:textColorHint="@color/colorSuccess"
-        android:textColorLink="@color/colorSuccess"
-        android:onClick="signUpClickFunction"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
-        app:layout_constraintVertical_bias="0.135"
-        app:rippleColor="@color/colorSuccess"
-        app:strokeColor="@color/colorSuccess" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.176">
-
-        <TextView
-            android:id="@+id/textView2"
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="182dp"
-            android:text="New to Survey Crest ?"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="658dp" />
+            android:ems="10"
+            android:hint="User Name"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColorHint="@color/colorA200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
 
-        <TextView
-            android:id="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintVertical_bias="0.069" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="128dp"
-            android:layout_marginBottom="6dp"
-            android:text="Sign In"
-            android:onClick="buttonClickFunction"
-            android:textColor="#3F51B5"
-            android:textStyle="bold|italic" />
-    </RelativeLayout>
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColorHint="@color/colorA200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            app:layout_constraintVertical_bias="0.019" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Mobile"
+            android:inputType="phone"
+            android:textAlignment="center"
+            android:textColorHint="@color/colorA200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+            app:layout_constraintVertical_bias="0.024" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textVisiblePassword"
+            android:textAlignment="center"
+            android:textColorHint="@color/colorA200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
+            app:layout_constraintVertical_bias="0.036" />
+
+
+        <Button
+            android:id="@+id/button"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:onClick="signUpClickFunction"
+            android:shadowColor="#673AB7"
+            android:text="Sign Up"
+            android:textColor="@color/colorSuccess"
+            android:textColorHighlight="@color/colorSuccess"
+            android:textColorHint="@color/colorSuccess"
+            android:textColorLink="@color/colorSuccess"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
+            app:layout_constraintVertical_bias="0.135"
+            app:rippleColor="@color/colorSuccess"
+            app:strokeColor="@color/colorSuccess" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintVertical_bias="0.176">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="95dp"
+                android:text="New to Survey Crest ?"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="658dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView2"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="-52dp"
+                android:onClick="buttonClickFunction"
+                android:text="Sign In"
+                android:textColor="#3F51B5"
+                android:textStyle="bold|italic" />
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

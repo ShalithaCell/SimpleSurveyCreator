@@ -1,6 +1,10 @@
 package com.example.simplesurveycreator.activity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -9,16 +13,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.PopupWindow;
-
 import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.model.Survey;
-import com.example.simplesurveycreator.utils.SurveyPreviousViewAdepter;
+import com.example.simplesurveycreator.recyclerView.adapter.Model.SurveyPreviousViewAdepter;
 
 import java.util.ArrayList;
 
@@ -30,6 +27,9 @@ import java.util.ArrayList;
 public class MainScreen extends Fragment {
 
     private RecyclerView recyclerViewInventory;
+
+    private Button btn1,btn2;
+
     private Button btnNewSurvey;
 
 
@@ -53,16 +53,27 @@ public class MainScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_main_screen, container, false);
+
+        btn1 = (Button)rootView.findViewById(R.id.chosetembtn);
+        btn2 = (Button)rootView.findViewById(R.id.reportbtn);
+        btnNewSurvey = (Button) rootView.findViewById(R.id.btnBlank) ;
+
         recyclerViewInventory = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
 
-        btnNewSurvey = (Button) rootView.findViewById(R.id.btnBlank) ;
+
 
         ArrayList<Survey> surveys = Survey.createSurveyList(10);
 
@@ -89,6 +100,33 @@ public class MainScreen extends Fragment {
                 assert getFragmentManager() != null;
                 newFragment.show(getFragmentManager(), "DatePicker");
             }
+        });
+
+
+        templatemenue templatemenue = new templatemenue();
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+       getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, templatemenue).addToBackStack(null).commit();
+
+
+
+            }
+
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new reportHome()).addToBackStack(null).commit();
+
+            }
+
         });
 
         return rootView;
