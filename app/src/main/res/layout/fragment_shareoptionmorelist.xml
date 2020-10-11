@@ -378,36 +378,53 @@
                 android:layout_height="162dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:text="@string/shareqrcode"
-                    android:textAlignment="center"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
                 <LinearLayout
-                    android:layout_width="404dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
                     android:orientation="horizontal">
 
                     <Space
-                        android:layout_width="87dp"
+                        android:layout_width="36dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="314dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/shareqrcode"
+                        android:textAlignment="center"
+                        android:textColor="@color/Black"
+                        android:textSize="18sp" />
+
+                    <Space
+                        android:layout_width="78dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="33dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 
                     <ImageView
                         android:id="@+id/imageView15"
-                        android:layout_width="224dp"
+                        android:layout_width="270dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/qrcode"
                         tools:src="@tools:sample/avatars" />
 
                     <Space
-                        android:layout_width="67dp"
-                        android:layout_height="83dp"
+                        android:layout_width="89dp"
+                        android:layout_height="52dp"
                         android:layout_weight="1" />
                 </LinearLayout>
             </LinearLayout>

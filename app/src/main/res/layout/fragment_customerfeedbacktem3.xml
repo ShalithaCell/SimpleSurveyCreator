@@ -21,7 +21,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_height="60dp"
             android:background="@drawable/gradiant_background"
             android:orientation="vertical">
 
@@ -38,7 +38,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="27dp" />
+                        android:layout_height="21dp" />
 
                     <TextView
                         android:id="@+id/textView20234"
@@ -67,7 +67,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -195,7 +195,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="151dp"
+            android:layout_height="175dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -280,7 +280,7 @@
                 android:orientation="horizontal">
 
                 <Space
-                    android:layout_width="193dp"
+                    android:layout_width="234dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
