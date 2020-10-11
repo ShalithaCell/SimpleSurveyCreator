@@ -128,7 +128,7 @@
             android:id="@+id/mobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mobile : 0777111222"
+            android:text="Mobile : 0771111222"
             android:textColor="@color/Black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
