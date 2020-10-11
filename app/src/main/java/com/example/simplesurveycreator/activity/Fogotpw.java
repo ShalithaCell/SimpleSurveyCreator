@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.activity.Login;
@@ -26,10 +27,19 @@ public class Fogotpw extends AppCompatActivity {
     public void CancelButtonClickFunction(View view) {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+
+        Toast toast_success = Toast.makeText(getApplicationContext(),
+                "Cancelled.",
+                Toast.LENGTH_SHORT);
+        toast_success.show();
     }
 
     public void ResetButtonClickFunction(View view) {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+        Toast toast_success = Toast.makeText(getApplicationContext(),
+                "Please check your mails.",
+                Toast.LENGTH_SHORT);
+        toast_success.show();
     }
 }

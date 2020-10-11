@@ -7,43 +7,79 @@
     android:background="@drawable/mat_bg"
     tools:context=".activity.Signup">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="415dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/backgroud_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="53dp"
+            android:paddingLeft="50dp"
             android:text="@string/signup"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.313"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/textView1111"
+            android:layout_width="256dp"
+            android:layout_height="30dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="5dp"
+            android:text="Welocome to SurveyCrest"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.162"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialTextView"
-            app:layout_constraintVertical_bias="0.036">
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
 
-            <ImageView
-                android:id="@+id/sampleteplistbtn1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="143dp"
-                android:layout_marginEnd="140dp"
-                android:src="@drawable/app_logo"/>
-        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+        app:layout_constraintVertical_bias="0.036">
+
+        <ImageView
+            android:id="@+id/sampleteplistbtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="143dp"
+            android:layout_marginEnd="140dp"
+            android:src="@drawable/app_logo" />
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -55,22 +91,23 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layout_constraintVertical_bias="0.359">
+        app:layout_constraintVertical_bias="0.195">
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:freezesText="false"
             android:hint="User Name"
             android:inputType="textPersonName"
             android:textAlignment="center"
-            android:textColorHint="@color/colorA200"
+            android:textAllCaps="false"
+            android:textColorHint="@color/counter_text_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-
             app:layout_constraintTop_toTopOf="@+id/constraintLayout2"
             app:layout_constraintVertical_bias="0.069" />
 
@@ -115,6 +152,7 @@
             android:inputType="textVisiblePassword"
             android:textAlignment="center"
             android:textColorHint="@color/colorA200"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
@@ -125,13 +163,13 @@
 
         <Button
             android:id="@+id/button"
-            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:background="@color/colorSuccess"
             android:onClick="signUpClickFunction"
             android:shadowColor="#673AB7"
             android:text="Sign Up"
-            android:textColor="@color/colorSuccess"
+            android:textColor="@color/background"
             android:textColorHighlight="@color/colorSuccess"
             android:textColorHint="@color/colorSuccess"
             android:textColorLink="@color/colorSuccess"
