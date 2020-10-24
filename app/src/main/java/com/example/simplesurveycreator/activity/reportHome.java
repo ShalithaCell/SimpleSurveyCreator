@@ -15,7 +15,7 @@ import com.example.simplesurveycreator.R;
 
 public class reportHome extends Fragment {
 
-    private Button btn1;
+    private Button btn1, btn2;
 
     public reportHome() {
         // Required empty public constructor
@@ -42,6 +42,7 @@ public class reportHome extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_report_home, container, false);
 
         btn1 = rootView.findViewById(R.id.reportanylzbtn);
+        btn2 = rootView.findViewById(R.id.responsanalyzbtn);
 
 
 
@@ -51,6 +52,17 @@ public class reportHome extends Fragment {
             public void onClick(View view) {
 
                 getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new reportChartMenue()).addToBackStack(null).commit();
+
+            }
+
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new responses()).addToBackStack(null).commit();
 
             }
 

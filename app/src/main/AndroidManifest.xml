@@ -15,9 +15,9 @@
         <activity android:name=".activity.Fogotpw" />
         <activity android:name=".activity.Signup" />
         <activity android:name=".activity.whatsappshare" />
-        <activity android:name=".activity.Dashboard" />
         <activity android:name=".activity.Login" />
-        <activity android:name=".activity.HomeAppActivity">
+        <activity android:name=".activity.HomeAppActivity"/>
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -8,9 +8,10 @@
     tools:context=".activity.populertemplist4">
 
     <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="95dp"
+        android:layout_height="64dp"
         android:background="@color/RoyalBlue"
         android:orientation="vertical">
 
@@ -20,7 +21,7 @@
             android:layout_height="36dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
-            android:text="@string/previewsurveylist"
+            android:text="@string/populerlist"
             android:textColor="@color/White"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -54,8 +55,11 @@
                     android:layout_width="169dp"
                     android:layout_height="42dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="@string/cusmrfedbck" />
+                    android:layout_marginTop="48dp"
+                    android:text="@string/cusmrfedbck"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
 
@@ -75,8 +79,11 @@
                     android:layout_width="169dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="@string/producysurvey" />
+                    android:layout_marginTop="50dp"
+                    android:text="@string/producysurvey"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -93,11 +100,14 @@
                     tools:srcCompat="@drawable/schart13" />
 
                 <TextView
-                    android:layout_width="178dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="43dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Vaction Travel Template" />
+                    android:layout_marginTop="50dp"
+                    android:text="Vaction Travel Template"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
 
@@ -114,11 +124,14 @@
                     tools:srcCompat="@drawable/schart23" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="244dp"
                     android:layout_height="39dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="COVID-19 Survey Template" />
+                    android:layout_marginTop="50dp"
+                    android:text="COVID-19 Survey Template"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -135,11 +148,14 @@
                     tools:srcCompat="@drawable/schart5" />
 
                 <TextView
-                    android:layout_width="173dp"
+                    android:layout_width="235dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Online Class es Survey" />
+                    android:layout_marginTop="50dp"
+                    android:text="Online Class es Survey"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -155,11 +171,14 @@
                     tools:srcCompat="@drawable/schart9" />
 
                 <TextView
-                    android:layout_width="201dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="46dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Courses Evaluation Template" />
+                    android:layout_marginTop="50dp"
+                    android:text="Courses Evaluation Template"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -178,8 +197,11 @@
                     android:layout_width="190dp"
                     android:layout_height="38dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Hotel Guest Feedback" />
+                    android:layout_marginTop="50dp"
+                    android:text="Hotel Guest Feedback"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -194,11 +216,14 @@
                     android:src="@drawable/surveyicon2" />
 
                 <TextView
-                    android:layout_width="171dp"
+                    android:layout_width="219dp"
                     android:layout_height="49dp"
                     android:layout_marginLeft="150dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Event Satisfication Survey" />
+                    android:layout_marginTop="50dp"
+                    android:text="Event Satisfication Survey"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
             </androidx.cardview.widget.CardView>
 
