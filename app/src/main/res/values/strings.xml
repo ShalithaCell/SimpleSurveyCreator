@@ -209,4 +209,6 @@
     <string name="active_and_publish">Active and Publish</string>
     <string name="save_and_edit">Save and Edit</string>
     <string name="wrirteanwer">"     Write your answere here..."</string>
+    <string name="select_pre_define_questions">Select pre define questions</string>
+    <string name="question_bank">Question bank</string>
 </resources>

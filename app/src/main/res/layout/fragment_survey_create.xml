@@ -100,6 +100,7 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtSurveyName" />
@@ -131,6 +132,7 @@
                 app:overlay_openingAnimationDurationMs="1000"/>
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/btnQuestionBank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_color="@color/Teal"

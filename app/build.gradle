@@ -69,4 +69,6 @@ dependencies {
     //spinner
     implementation 'com.github.ganfra:material-spinner:2.0.0'
 
+    //toaster
+    implementation 'com.github.GrenderG:Toasty:1.5.0'
 }
