@@ -1,6 +1,7 @@
 package com.example.simplesurveycreator.activity;
 
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,11 +21,15 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.simplesurveycreator.R;
 
+import es.dmoral.toasty.Toasty;
+
 public class NewSurveyPopup extends DialogFragment {
 
     EditText txtSurveyName;
     TextView btnClose;
     Button btnCancel,btnGetStarted;
+
+    SharedPreferences sharedpreferences;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -34,6 +40,10 @@ public class NewSurveyPopup extends DialogFragment {
         btnCancel = (Button) view.findViewById(R.id.btnCancel);
         btnGetStarted = (Button) view.findViewById(R.id.btnCreate);
 
+        sharedpreferences = getActivity().getSharedPreferences("MyPref", 0);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,9 +51,25 @@ public class NewSurveyPopup extends DialogFragment {
             }
         });
 
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(txtSurveyName.getText().length() <= 0){
+                    Toasty.warning(getActivity(), "Please enter survey name", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+
+                editor.putString("surveyName", txtSurveyName.getText().toString());
+                editor.commit();
+
                 getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new surveyCreate()).addToBackStack(null).commit();
                 dismiss();
             }

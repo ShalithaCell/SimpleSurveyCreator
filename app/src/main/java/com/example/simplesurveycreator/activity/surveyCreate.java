@@ -1,5 +1,6 @@
 package com.example.simplesurveycreator.activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,8 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.simplesurveycreator.R;
 import com.example.simplesurveycreator.model.Options;
@@ -39,10 +42,13 @@ public class surveyCreate extends Fragment implements CallBackListener {
     private RecyclerView recyclerView;
     private QuestionAdapter mAdapter;
     private ImageView btnPublish;
+    private TextView surveyName;
 
     private FabOption btnMultipleChoice, btnDropDown, btnText, btnFaces, btnRating, btnPoints;
 
     private List<Options> options = new ArrayList<Options>();
+
+    SharedPreferences sharedpreferences;
 
     public surveyCreate() {
         // Required empty public constructor
@@ -75,6 +81,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
         btnRating = rootView.findViewById(R.id.btnRating);
         btnPoints = rootView.findViewById(R.id.btnPoints);
         btnPublish = rootView.findViewById(R.id.btnPublish);
+        surveyName = rootView.findViewById(R.id.txtSurveyName);
 
         options.add(new Options("Option 1"));
         options.add(new Options("Option 2"));
@@ -89,6 +96,11 @@ public class surveyCreate extends Fragment implements CallBackListener {
         recyclerView.setAdapter(mAdapter);
 
         LoadCustomerList("Question name", QuestionTypes.MULTI_CHOICE);
+
+        sharedpreferences = getActivity().getSharedPreferences("MyPref", 0);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        surveyName.setText(sharedpreferences.getString("surveyName", null));
 
         btnPublish.setOnClickListener(new View.OnClickListener() {
             @Override
