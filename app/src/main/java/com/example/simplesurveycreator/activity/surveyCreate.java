@@ -3,6 +3,7 @@ package com.example.simplesurveycreator.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -44,7 +45,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
     private ImageView btnPublish;
     private TextView surveyName;
 
-    private FabOption btnMultipleChoice, btnDropDown, btnText, btnFaces, btnRating, btnPoints;
+    private FabOption btnMultipleChoice, btnDropDown, btnText, btnFaces, btnRating, btnPoints, btnQuestionBank;
 
     private List<Options> options = new ArrayList<Options>();
 
@@ -81,6 +82,7 @@ public class surveyCreate extends Fragment implements CallBackListener {
         btnRating = rootView.findViewById(R.id.btnRating);
         btnPoints = rootView.findViewById(R.id.btnPoints);
         btnPublish = rootView.findViewById(R.id.btnPublish);
+        btnQuestionBank  =  rootView.findViewById(R.id.btnQuestionBank);
         surveyName = rootView.findViewById(R.id.txtSurveyName);
 
         options.add(new Options("Option 1"));
@@ -101,6 +103,15 @@ public class surveyCreate extends Fragment implements CallBackListener {
         SharedPreferences.Editor editor = sharedpreferences.edit();
 
         surveyName.setText(sharedpreferences.getString("surveyName", null));
+
+        btnQuestionBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment newFragment = new QuestionBankDialog();
+                assert getFragmentManager() != null;
+                newFragment.show(getFragmentManager(), "DatePicker");
+            }
+        });
 
         btnPublish.setOnClickListener(new View.OnClickListener() {
             @Override

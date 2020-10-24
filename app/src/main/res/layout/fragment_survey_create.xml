@@ -132,6 +132,7 @@
                 app:overlay_openingAnimationDurationMs="1000"/>
 
             <com.nambimobile.widgets.efab.FabOption
+                android:id="@+id/btnQuestionBank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_color="@color/Teal"

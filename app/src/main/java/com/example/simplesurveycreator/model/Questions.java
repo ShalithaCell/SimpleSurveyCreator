@@ -17,6 +17,10 @@ public class Questions {
         this.type = _type;
     }
 
+    public Questions(String questionName) {
+        this.questionName = questionName;
+    }
+
     public String getTimeStamp() {
         return timeStamp;
     }
